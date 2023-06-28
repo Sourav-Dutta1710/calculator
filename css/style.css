@@ -1,0 +1,40 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button{
+  width:10vw;
+  height:5vw;
+}
+
+.result-box{
+  height: 7vw;
+  overflow-x: scroll;
+}
+
+button:hover{
+  background-color: grey !important;
+}
+
+.main{
+  width: 50vw !important;
+  }
+
+@media(max-width:1024px){
+  button{
+    height:10vw;
+  }
+}
+
+@media(max-width:425px){
+  .main{
+  width: 85vw !important;
+  }
+
+  button{
+    width:30vw !important;
+    height:15vw !important;
+  }
+}

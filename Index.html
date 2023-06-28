@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/6dc7929f7c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-primary-subtle">
+  <section class="main container-fluid mt-5 bg-secondary-subtle p-4">
+  <div class="pb-3">
+    <div class="result-box w-100 p-5 fs-1 bg-white text-end px-1" id="result"></div>
+  </div>
+  <div class="d-flex justify-content-center gap-3 my-3">
+    <button class="fs-1 bg-black text-white" id="number" value="=" onclick="clearAll()" >AC</button>
+    <button class="fs-1 bg-black text-white" id="number" onclick="negation()" >+/-</button>
+    <button class="fs-1 bg-black text-white" id="number" onclick="percentage()" >%</button>
+    <button class="fs-1 bg-black text-white" value="/" onclick="divide()" >/</button>
+  </div>
+  <div class="d-flex justify-content-center gap-3 my-3">
+    <button class="fs-1 bg-black text-white" id="number" value="7" onclick="numbers(7)" >7</button>
+    <button class="fs-1 bg-black text-white" id="number" value="8" onclick="numbers(8)" >8</button>
+    <button class="fs-1 bg-black text-white" id="number" value="9" onclick="numbers(9)" >9</button>
+    <button class="fs-1 bg-black text-white" value="*" onclick="multiply()" >*</button>
+  </div>
+  <div class="d-flex justify-content-center gap-3 my-3">
+    <button class="fs-1 bg-black text-white" id="number" value="4" onclick="numbers(4)" >4</button>
+    <button class="fs-1 bg-black text-white" id="number" value="5" onclick="numbers(5)" >5</button>
+    <button class="fs-1 bg-black text-white" id="number" value="6" onclick="numbers(6)" >6</button>
+    <button class="fs-1 bg-black text-white" value="-" onclick="minus()" >-</button>
+  </div>
+  <div class="d-flex justify-content-center gap-3 my-3">
+    <button class="fs-1 bg-black text-white" id="number" value="1" onclick="numbers(1)" >1</button>
+    <button class="fs-1 bg-black text-white" id="number" value="2" onclick="numbers(2)" >2</button>
+    <button class="fs-1 bg-black text-white" id="number" value="3" onclick="numbers(3)" >3</button>
+    <button class="fs-1 bg-black text-white" value="+" onclick="plus()" >+</button>
+  </div>
+  <div class="d-flex justify-content-center gap-3">
+    <button class="fs-1 bg-black text-white" onclick="backspace()">C</button>
+    <button class="fs-1 bg-black text-white" id="number" value="0" onclick="numbers(0)" >0</button>
+    <button class="fs-1 bg-black text-white" onclick="decimal()" >.</button>
+    <button class="fs-1 bg-black text-white" value="=" onclick="equal()" >=</button>
+  </div>
+   </section>
+   <script src="./javascript/main.js"></script>
+
+</body>
+</html>
