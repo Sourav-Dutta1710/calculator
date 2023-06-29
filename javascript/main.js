@@ -8,7 +8,7 @@ const d=number%10;
 let afterDecimal=1;
 let nextOperation=true;
 let roundedNumber;
-let deleteOperator=1;
+let deleteOperator=false;
 
 function numbers(inputvalue){
     if(check === true)
@@ -19,11 +19,14 @@ function numbers(inputvalue){
         number += (inputvalue/afterDecimal);
         document.getElementById("result").innerHTML = number;
     }
+    if(operation!="")
+       deleteOperator = false;
 }
 
 function negation(){
     number*=-1;
     document.getElementById("result").innerHTML = number;
+    deleteOperator = false;
 }
 
 function percentage(){
@@ -43,7 +46,7 @@ function plus(){
         temp=number;
         number=0
         flag=!flag;
-        deleteOperator=2;
+        deleteOperator=true;
     } 
     else
     {
@@ -57,7 +60,6 @@ function plus(){
         flag=!flag;
         if(nextOperation == true)
           plus();
-        deleteOperator=3;
     }
 }
 
@@ -71,7 +73,7 @@ function minus(){
         temp=number;
         number=0
         flag=!flag;
-        deleteOperator=2;
+        deleteOperator=true;
     } 
     else
     {
@@ -85,7 +87,6 @@ function minus(){
         flag=!flag;
         if(nextOperation == true)
           minus();
-        deleteOperator=3;
     }
 }
 
@@ -99,7 +100,7 @@ function multiply(){
         temp=number;
         number=0
         flag=!flag;
-        deleteOperator=2;
+        deleteOperator=true;
     } 
     else
     {
@@ -113,7 +114,6 @@ function multiply(){
         flag=!flag;
         if(nextOperation == true)
           multiply();
-        deleteOperator=3;
     }
 }
 
@@ -127,7 +127,7 @@ function divide(){
         temp=number;
         number=0
         flag=!flag;
-        deleteOperator=2;
+        deleteOperator=true;
     } 
     else
     {
@@ -141,7 +141,6 @@ function divide(){
         flag=!flag;
         if(nextOperation == true)
           divide();
-        deleteOperator=3;
     }
 }
 
@@ -172,18 +171,37 @@ function equal(){
             break;
         }
     }
+    operation="";
     nextOperation=true;
 }
 
 function backspace(){
-        // alert(deleteOperator);
-        digit = number%10;
-        number = (number-digit)/10;
-        if(number != 0)
-        document.getElementById("result").innerHTML = number;
-        else
-        document.getElementById("result").innerHTML = "";   
-        deleteOperator = 1;
+        if(deleteOperator === false && operation === "")
+        {
+          digit = number%10;
+          number = (number-digit)/10;
+          if(number != 0)
+            document.getElementById("result").innerHTML = number;
+          else
+            document.getElementById("result").innerHTML = "";  
+        }
+
+        if(deleteOperator === true && operation != "")
+        {
+          number=0;
+          equal();
+        }
+
+        if(deleteOperator === false && operation != "")
+        {
+            digit = number%10;
+            number = (number-digit)/10;
+            if(number != 0)
+              document.getElementById("result").innerHTML = temp + operation + number;
+            else
+              document.getElementById("result").innerHTML = temp + operation; 
+        }
+        
 }
 
 function decimal(){
