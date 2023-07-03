@@ -190,7 +190,6 @@ function backspace(){
         {
           number=0;
           equal();
-          deleteOperator = false;
         }
 
         if(deleteOperator === false && operation != "")
@@ -201,7 +200,6 @@ function backspace(){
               document.getElementById("result").innerHTML = temp + operation + number;
             else
               document.getElementById("result").innerHTML = temp + operation; 
-            deleteOperator = true;
         }
         
 }
