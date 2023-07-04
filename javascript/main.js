@@ -225,13 +225,7 @@ function backspace(){
 
 function decimal(){
     if(check === false)
-    {
         alert("Invalid Input");
-        document.getElementById("result").innerHTML ="";
-        number=0;
-        afterDecimal = 1;
-        check=true;
-    }
     else{
      check=false;
      document.getElementById("result").innerHTML +='.';
