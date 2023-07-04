@@ -10,13 +10,20 @@ let nextOperation=true;
 let roundedNumber;
 let deleteOperator=false;
 
-function numbers(inputvalue){
+function numbers(inputValue){
     if(check === true)
-    {document.getElementById("result").innerHTML+=inputvalue;
-    number=(number*10)+inputvalue;}
+    {
+        document.getElementById("result").innerHTML+=inputValue;
+        number=Number((number*10)+inputValue);
+        if(number != number.toFixed(2))
+        {
+           roundedNumber = number.toFixed(2);
+           number = roundedNumber;
+        }
+    }
     else{
         afterDecimal*=10;
-        number += (inputvalue/afterDecimal);
+        number += Number(inputValue/afterDecimal);
         document.getElementById("result").innerHTML = number;
     }
     if(operation!="")
@@ -176,7 +183,7 @@ function equal(){
 }
 
 function backspace(){
-        if(deleteOperator === false && operation === "")
+        if(deleteOperator === false && operation === "" && afterDecimal === 1)
         {
           digit = number%10;
           number = (number-digit)/10;
@@ -203,7 +210,17 @@ function backspace(){
               document.getElementById("result").innerHTML = temp + operation; 
             deleteOperator = true;
         }
-        
+
+        if(afterDecimal != 1)
+        {
+            number *= afterDecimal;
+            number -= number%10;
+            number /= afterDecimal;
+            document.getElementById("result").innerHTML = number;
+            afterDecimal /= 10;
+            if(afterDecimal === 1)
+              check = true;
+        }
 }
 
 function decimal(){
@@ -212,6 +229,7 @@ function decimal(){
         alert("Invalid Input");
         document.getElementById("result").innerHTML ="";
         number=0;
+        afterDecimal = 1;
         check=true;
     }
     else{
@@ -224,6 +242,6 @@ function clearAll(){
     check = true;
     afterDecimal=1;
     number=0;
-    temp=0
+    temp=0;
     document.getElementById("result").innerHTML = ""; 
 }
