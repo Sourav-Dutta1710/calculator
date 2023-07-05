@@ -102,16 +102,21 @@ function multiply(){
     afterDecimal=1;
     if(flag)
     {
+        // alert(temp);
         operation="*";
         document.getElementById("result").innerHTML +='*';
         temp=number;
-        number=0
+        number=0;
         flag=!flag;
         deleteOperator=true;
     } 
     else
     {
-        number = number * temp; 
+        if(number === 0 && temp != 0)
+           number = temp;
+        else if(temp != 0)
+           number = number * temp; 
+
         if(number != number.toFixed(2))
         {
             roundedNumber = number.toFixed(2);
@@ -138,7 +143,12 @@ function divide(){
     } 
     else
     {
-        number = temp/number;
+
+         if(number === 0 && temp != 0)
+           number = temp;
+        else if(temp != 0)
+           number = temp/number;
+     
         if(number != number.toFixed(2))
         {
             roundedNumber = number.toFixed(2);
