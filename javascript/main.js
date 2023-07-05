@@ -102,7 +102,6 @@ function multiply(){
     afterDecimal=1;
     if(flag)
     {
-        // alert(temp);
         operation="*";
         document.getElementById("result").innerHTML +='*';
         temp=number;
