@@ -9,6 +9,7 @@ let afterDecimal=1;
 let nextOperation=true;
 let roundedNumber;
 let deleteOperator=false;
+let update;
 
 function numbers(inputValue){
     if(check === true)
@@ -186,6 +187,11 @@ function equal(){
             divide();
             break;
         }
+        case "^":
+        {
+            power();
+            break;
+        }
     }
     operation="";
     nextOperation=true;
@@ -247,4 +253,60 @@ function clearAll(){
     number=0;
     temp=0;
     document.getElementById("result").innerHTML = ""; 
+}
+
+function factorial(){
+   for(i=number-1;i>0;i--)
+   number*=i;
+   document.getElementById("result").innerHTML = number;
+}
+
+function doubleZero(){
+    number*=100;
+    document.getElementById("result").innerHTML = number;
+}
+
+function root(){
+    number = Math.sqrt(number);
+    if(number != number.toFixed(2))
+    {
+        roundedNumber = number.toFixed(2);
+        number = roundedNumber;
+    }
+    document.getElementById("result").innerHTML = number;
+}
+
+function power(){
+    check = true;
+    afterDecimal=1;
+    if(flag)
+    {
+        operation="^";
+        document.getElementById("result").innerHTML +='^';
+        temp=number;
+        number=0
+        flag=!flag;
+        deleteOperator=true;
+    } 
+    else
+    {
+        update = temp;
+         if(temp === 0 && number != 0)
+           number = temp;
+        else if(temp != 0)
+           {
+            for(i=0;i<number-1;i++)
+                temp *= update;
+           }
+        number = temp;
+        if(number != number.toFixed(2))
+        {
+            roundedNumber = number.toFixed(2);
+            number = roundedNumber;
+        }
+        document.getElementById("result").innerHTML = number; 
+        flag=!flag;
+        if(nextOperation == true)
+          power();
+    }
 }
